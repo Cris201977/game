@@ -1,4 +1,5 @@
-[{"pregunta_1" :[{
+[{"3" :
+[{
 "1" : {
 "opcion1":["Pappo", "verdadero"],
 "opcion2": ["Spineta" , "falso"]
@@ -9,8 +10,8 @@
 
 },
 "3" : {
-"opcion1":["Maradona", "falso"],
-"opcion2": ["Pele" , "verdadero"]
+"opcion1":["Pele", "falso"],
+"opcion2": ["Maradona" , "verdadero"]
 }
 }]
 
