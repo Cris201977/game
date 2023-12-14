@@ -1,0 +1,17 @@
+[{"pregunta_1" :[{
+"1" : {
+"opcion1":["Pappo", "verdadero"],
+"opcion2": ["Spineta" , "falso"]
+},
+"2" : {
+"opcion1":["Airton Senna", "verdadero"],
+"opcion2": ["Juan Manuel Fangio" , "falso"]
+
+},
+"3" : {
+"opcion1":["Maradona", "falso"],
+"opcion2": ["Pele" , "verdadero"]
+}
+}]
+
+}]
