@@ -36,6 +36,7 @@ title : res.charAt(0).toUpperCase() + res.slice(1),
 showConfirmButton: false,
 timer: 1500
 })
+setTexto("Apretá el botón para ver la pregunta")
 }
   return (
     <>
