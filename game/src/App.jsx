@@ -5,7 +5,7 @@ import preguntas from './data/preguntas.json'
 import respuestas from './data/respuestas.json'
 import Swal from 'sweetalert2'
 
-function App() {
+function App()  {
 const max = 3;
 const [texto, setTexto] = useState("Apretá el botón para ver la pregunta")
 const [op1, setOp1] = useState("Opción 1")
@@ -15,7 +15,7 @@ const [numPreg, setnumPreg] = useState()
 const [puntos, setPuntos] = useState(0)
 const [resultado, setResultado] = useState()
 const [styleOpcion, setStyleOpcion] = useState({visibility: "hidden"})
-const [styleAlert, setStyleAlert] = useState({color: "yellow"})
+const [styleAlert, setStyleAlert] = useState()
 let [count, setCount] = useState(10);
 
 useEffect(() => {
@@ -28,20 +28,23 @@ if(count == 0){
   setCount(10)
 }
 const mostrarResultado = function (res){
-setCount(10)
-res == "falso" ? setStyleAlert({color: "red"}):setStyleAlert({color: "green"})
-setStyleOpcion({visibility:"hidden"})
-Swal.fire({
-title : res.charAt(0).toUpperCase() + res.slice(1),
+  setCount(10)
+
+  setStyleOpcion({visibility:"hidden"})
+  console.log(res)
+  Swal.fire({
+title : (res == "falso" ? res.charAt(0).toUpperCase().fontcolor("red") + res.slice(1).fontcolor("red"): res.charAt(0).toUpperCase().fontcolor("green") + res.slice(1).fontcolor("green")),
 showConfirmButton: false,
+background: res == "verdadero" ? '#ABEBC6': "#F08080",
 timer: 1500
 })
+setTexto("Apretá el botón para ver la pregunta")
 }
   return (
     <>
 <h1>{puntos}</h1>
 <Mensaje mensaje={texto} />
-<button onClick={()=>{
+<button onClick= {()=>{
 let n = (Math.floor(Math.random() * max)+1).toString();
 let nP =(Math.floor(Math.random() * max)+1).toString();
 setNum(n);
