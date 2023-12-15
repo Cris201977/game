@@ -3,6 +3,7 @@ import Mensaje from './componenentes/Mensaje'
 import { useState, useEffect } from 'react'
 import preguntas from './data/preguntas.json'
 import respuestas from './data/respuestas.json'
+import Swal from 'sweetalert2'
 
 function App() {
   const max = 3;
@@ -14,7 +15,8 @@ const [numPreg, setnumPreg] = useState()
 const [puntos, setPuntos] = useState(0)
 const [resultado, setResultado] = useState()
 const [styleOpcion, setStyleOpcion] = useState({visibility: "hidden"})
-let [count, setCount] = useState();
+const [styleAlert, setStyleAlert] = useState({color: "yellow"})
+let [count, setCount] = useState(10);
 
     useEffect(() => {
         //Implementing the setInterval method
@@ -26,8 +28,17 @@ let [count, setCount] = useState();
         return () => clearInterval(interval);
     }, [count]);
 if(count == 0){
-  setCount()
-
+  setCount(10)
+}
+const mostrarResultado = function (res){
+setCount(10)
+res == "falso" ? setStyleAlert({color: "red"}):setStyleAlert({color: "green"})
+setStyleOpcion({visibility:"hidden"})
+        Swal.fire({
+          title : res,
+          showConfirmButton: false,
+          timer: 1500
+        })
 }
   return (
     <>
@@ -48,20 +59,19 @@ setStyleOpcion({visibility:"visible"})
 }}>Jugar</button>
 <div style={styleOpcion}>
 <p>{count}</p>
+
 <button onClick={()=>{
 setResultado(respuestas[0][3][0][num].opcion1[1])
 console.log(resultado)
 respuestas[0][3][0][num].opcion1[1] == "verdadero" ? setPuntos(puntos + 1): setPuntos(puntos - 1)
-setCount()
-setStyleOpcion({visibility:"hidden"})
+mostrarResultado(respuestas[0][3][0][num].opcion1[1])
 }}>{op1}</button>
 <button onClick={()=>{
 setResultado(respuestas[0][3][0][num].opcion2[1])
 respuestas[0][3][0][num].opcion2[1] == "verdadero" ? setPuntos(puntos + 1): setPuntos(puntos - 1)
-setCount()
-setStyleOpcion({visibility:"hidden"})
+mostrarResultado(respuestas[0][3][0][num].opcion2[1])
 }}>{op2}</button>
-<h2>{resultado}</h2>
+
 </div>
 
     </>

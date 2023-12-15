@@ -4,3 +4,6 @@
   padding: 2rem;
   text-align: center;
 }
+.swal2-title {
+  color: green !important;
+}
