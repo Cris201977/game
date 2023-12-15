@@ -4,6 +4,6 @@
   padding: 2rem;
   text-align: center;
 }
-.swal2-title {
-  color: green !important;
+.swal2 {
+  background-color: rgb(107, 154, 240);
 }
