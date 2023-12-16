@@ -6,7 +6,7 @@ import respuestas from './data/respuestas.json'
 import Swal from 'sweetalert2'
 
 function App()  {
-const max = 3;
+const max = 4;
 const [texto, setTexto] = useState("Apretá el botón para ver la pregunta")
 const [op1, setOp1] = useState("Opción 1")
 const [op2, setOp2] = useState("Opción 2")
@@ -16,20 +16,23 @@ const [puntos, setPuntos] = useState(0)
 const [resultado, setResultado] = useState()
 const [styleOpcion, setStyleOpcion] = useState({visibility: "hidden"})
 const [styleAlert, setStyleAlert] = useState()
-let [count, setCount] = useState(10);
+let [count, setCount] = useState();
 
 useEffect(() => {
-const interval = setInterval(() => {
+if (count <= 10){
+  const interval = setInterval(() => {
+  console.log(count)
 setCount(count - 1);
   }, 1000);
   return () => clearInterval(interval);
-}, [count]);
-if(count == 0){
-  setCount(10)
+}}, [count]);
+
+if(count < 0){
+  setStyleOpcion({visibility:"hidden"})
+  setCount()
 }
 const mostrarResultado = function (res){
-  setCount(10)
-
+  setCount()
   setStyleOpcion({visibility:"hidden"})
   console.log(res)
   Swal.fire({
@@ -59,7 +62,6 @@ setStyleOpcion({visibility:"visible"})
 }}>Jugar</button>
 <div style={styleOpcion}>
 <p>{count}</p>
-
 <button onClick={()=>{
 setResultado(respuestas[0][3][0][num].opcion1[1])
 console.log(resultado)

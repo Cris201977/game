@@ -2,7 +2,7 @@
 [{
 "1" : {
 "opcion1":["Pappo", "verdadero"],
-"opcion2": ["Spineta" , "falso"]
+"opcion2": ["Spinetta" , "falso"]
 },
 "2" : {
 "opcion1":["Airton Senna", "verdadero"],
@@ -12,6 +12,10 @@
 "3" : {
 "opcion1":["Pele", "falso"],
 "opcion2": ["Maradona" , "verdadero"]
+},
+"4" : {
+"opcion1":["Rene Favaloro", "verdadero"],
+"opcion2": ["Juam Pablo II" , "falso"]
 }
 }]
 
