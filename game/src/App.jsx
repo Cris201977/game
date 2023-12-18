@@ -45,8 +45,6 @@ else{
 }
 
 const jugadores = function (punto){
-  console.log(punto)
-  console.log(jugador_A.puntos)
 jugador_A.activo == jugador_B.activo ? (
 localStorage.setItem("jugador_A", JSON.stringify(parseInt(punto) + parseInt(jugador_A.puntos))),
 setActivoA( activoA +1)
@@ -54,7 +52,6 @@ setActivoA( activoA +1)
 setActivoB( activoB +1)
 )
 }
-
 
 useEffect(() => {
 if (count <= 10){
@@ -90,13 +87,14 @@ setTexto("Apretá el botón para ver la pregunta")
 
 <button className='buttonPlay' onClick= {()=>{
 let n = (Math.floor(Math.random() * max)+1).toString();
-let nP =(Math.floor(Math.random() * max)+1).toString();
+let nP =(Math.floor(Math.random() * 3)+1).toString();
 setNum(n);
 setnumPreg(nP);
 setTimeout(()=>{
-setTexto(preguntas[0][3].pregunta)
-setOp1(respuestas[0][3][0][n].opcion1[0])
-setOp2(respuestas[0][3][0][n].opcion2[0])
+  console.log(nP)
+setTexto(preguntas[0][nP].pregunta)
+setOp1(respuestas[0][nP][0][n].opcion1[0])
+setOp2(respuestas[0][nP][0][n].opcion2[0])
 setCount(10)
 setStyleOpcion({visibility:"visible"})
 }, 2000)
@@ -105,12 +103,12 @@ setStyleOpcion({visibility:"visible"})
 <div style={styleOpcion}>
 <p>{count}</p>
 <button onClick={()=>{
-setResultado(respuestas[0][3][0][num].opcion1[1])
-mostrarResultado(respuestas[0][3][0][num].opcion1[1])
+setResultado(respuestas[0][numPreg][0][num].opcion1[1])
+mostrarResultado(respuestas[0][numPreg][0][num].opcion1[1])
 }}>{op1}</button>
 <button onClick={()=>{
-setResultado(respuestas[0][3][0][num].opcion2[1])
-mostrarResultado(respuestas[0][3][0][num].opcion2[1])
+setResultado(respuestas[0][numPreg][0][num].opcion2[1])
+mostrarResultado(respuestas[0][numPreg][0][num].opcion2[1])
 
 }}>{op2}</button>
 </div>

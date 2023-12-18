@@ -1,4 +1,47 @@
-[{"3" :
+[{
+"1" :
+[{
+"1" : {
+"opcion1":["Primer Mundial de fútbol", "verdadero"],
+"opcion2": ["Segunda Guerra Mundial" , "falso"]
+},
+"2" : {
+"opcion1":["Independencia de Brasil", "falso"],
+"opcion2": ["Independencia de  de Argentina" , "verdadero"]
+},
+"3" : {
+"opcion1":["Fundación de Boca Juniors", "falso"],
+"opcion2": ["Fundación de River Plate" , "verdadero"]
+},
+"4" : {
+"opcion1":["Estreno de Titanic", "falso"],
+"opcion2": ["Estreno de Toy Story I" , "verdadero"]
+}
+}],
+
+
+"2" :
+[{
+"1" : {
+"opcion1":["Alberto Olmedo", "verdadero"],
+"opcion2": ["Jorge Porcel" , "falso"]
+},
+"2" : {
+"opcion1":["Martin Palermo", "falso"],
+"opcion2": ["Guillermo Barros Schelotto" , "verdadero"]
+
+},
+"3" : {
+"opcion1":["Mitha Legrand", "falso"],
+"opcion2": ["Gimnasia y Esgrima La Plata", "verdadero"]
+},
+"4" : {
+"opcion1":["Ford", "verdadero"],
+"opcion2": ["Chevrolet " , "falso"]
+}
+}],
+
+"3" :
 [{
 "1" : {
 "opcion1":["Pappo", "verdadero"],

@@ -1,11 +1,11 @@
 [{
 "1" : {
 "pregunta": "¿Qué pasó primero?",
-"id": 1
+"id": "1"
 },
 "2" : {
 "pregunta": "¿Quién nació primero?",
-"id": 2
+"id": "2"
 },
 "3" : {
 "pregunta": "¿Quién murió primero?",
