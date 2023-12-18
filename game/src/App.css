@@ -3,7 +3,40 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  height: 524px;
+  background-color: #94d8fb;
 }
 .swal2 {
   background-color: rgb(107, 154, 240);
+}
+.buttonPlay{
+  width: 90px;
+  height: 70px;
+  border-radius: 40px;
+  font-size: 20px;
+  background-color: rgb(243, 65, 65);
+  color: rgb(178, 204, 50);
+}
+button{
+  width: 280px;
+  height: 50px;
+  font-size: 20px;
+  color: rgb(254, 0, 0);
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: rgb(251, 219, 183);
+  border-radius: 10px;
+}
+h1{
+  background-color: coral;
+  border-radius: 10px;
+}
+.mensaje{
+  text-align: center;
+}
+.azul{
+  color:blue
+}
+.verde{
+  color:green
 }

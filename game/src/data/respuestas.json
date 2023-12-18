@@ -5,7 +5,7 @@
 "opcion2": ["Spinetta" , "falso"]
 },
 "2" : {
-"opcion1":["Airton Senna", "verdadero"],
+"opcion1":["Ayrton Senna", "verdadero"],
 "opcion2": ["Juan Manuel Fangio" , "falso"]
 
 },
@@ -15,7 +15,7 @@
 },
 "4" : {
 "opcion1":["Rene Favaloro", "verdadero"],
-"opcion2": ["Juam Pablo II" , "falso"]
+"opcion2": ["Juan Pablo II" , "falso"]
 }
 }]
 
