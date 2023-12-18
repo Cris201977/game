@@ -18,6 +18,16 @@ const [TextoRojo, setTextoRojo] = useState(
   padding: 35px;
   height: 480px;
 `);
+const [Button, setButton] = useState(
+  styled.button`
+  width: 90px;
+  height: 70px;
+  border-radius: 40px;
+  font-size: 20px;
+  background-color: green;
+  color: rgb(243, 243, 243);
+  box-shadow: 5px 5px 5px 2px black;
+`)
 
 const max = 4;
 const [texto, setTexto] = useState("Apretá el botón para ver la pregunta")
@@ -57,7 +67,7 @@ useEffect(() => {
 if (count <= 10){
   const interval = setInterval(() => {
 setCount(count - 1),
-count == 0 ? jugadores(-1): ""
+count == 0 ? (jugadores(-1)) (setTexto("Apretá el botón para ver la pregunta")): ""
   }, 1000);
   return () => clearInterval(interval);
 }}, [count]);
@@ -84,7 +94,22 @@ setTexto("Apretá el botón para ver la pregunta")
 
 <Jugadores />
 <Mensaje mensaje={texto} />
-
+{jugador_A.activo != jugador_B.activo ?
+<Button onClick= {()=>{
+let n = (Math.floor(Math.random() * max)+1).toString();
+let nP =(Math.floor(Math.random() * 3)+1).toString();
+setNum(n);
+setnumPreg(nP);
+setTimeout(()=>{
+  console.log(nP)
+setTexto(preguntas[0][nP].pregunta)
+setOp1(respuestas[0][nP][0][n].opcion1[0])
+setOp2(respuestas[0][nP][0][n].opcion2[0])
+setCount(10)
+setStyleOpcion({visibility:"visible"})
+}, 2000)
+}}>Jugar</Button>
+:
 <button className='buttonPlay' onClick= {()=>{
 let n = (Math.floor(Math.random() * max)+1).toString();
 let nP =(Math.floor(Math.random() * 3)+1).toString();
@@ -99,6 +124,7 @@ setCount(10)
 setStyleOpcion({visibility:"visible"})
 }, 2000)
 }}>Jugar</button>
+}
 
 <div style={styleOpcion}>
 <p>{count}</p>
