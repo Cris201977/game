@@ -6,9 +6,14 @@ import respuestas from './data/respuestas.json'
 import Swal from 'sweetalert2'
 import Jugadores from './componenentes/Jugadores'
 import styled from 'styled-components';
+import ReactAudioPlayer from 'react-audio-player';
+import useSound from 'use-sound';
+import fondo from './sonidos/sleep-talking-ogg-68026.mp3'
+import Sonido from './componenentes/Sonido'
 
 
 function App()  {
+
 const [TextoRojo, setTextoRojo] = useState(
   styled.div`
   color: black;
@@ -30,6 +35,7 @@ const [Button, setButton] = useState(
 `)
 
 const max = 4;
+const [playSound] = useSound(fondo)
 const [texto, setTexto] = useState("Apretá el botón para ver la pregunta")
 const [op1, setOp1] = useState("Opción 1")
 const [op2, setOp2] = useState("Opción 2")
@@ -91,6 +97,7 @@ setTexto("Apretá el botón para ver la pregunta")
 
   return (
     <TextoRojo>
+     <Sonido/>
 
 <Jugadores />
 <Mensaje mensaje={texto} />
