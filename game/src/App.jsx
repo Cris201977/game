@@ -12,9 +12,11 @@ import styled from 'styled-components';
 import useSound from 'use-sound';
 import fondo from './sonidos/sleep-talking-ogg-68026.mp3'
 import Sonido from './componenentes/Sonido'
+import AudioPlayer from './componenentes/AudioPlayer'
 
 
 function App()  {
+
 
 const [TextoRojo, setTextoRojo] = useState(
   styled.div`
@@ -99,7 +101,8 @@ setTexto("Apretá el botón para ver la pregunta")
 
   return (
     <TextoRojo>
-     <Sonido/>
+      <Sonido/>
+
 
 <Jugadores />
 <Mensaje mensaje={texto} />
