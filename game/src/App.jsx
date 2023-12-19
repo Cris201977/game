@@ -1,12 +1,14 @@
 import './App.css'
 import Mensaje from './componenentes/Mensaje'
 import { useState, useEffect } from 'react'
+import ReactAudioPlayer from 'react-audio-player';
+import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/lib/styles.css';
 import preguntas from './data/preguntas.json'
 import respuestas from './data/respuestas.json'
 import Swal from 'sweetalert2'
 import Jugadores from './componenentes/Jugadores'
 import styled from 'styled-components';
-import ReactAudioPlayer from 'react-audio-player';
 import useSound from 'use-sound';
 import fondo from './sonidos/sleep-talking-ogg-68026.mp3'
 import Sonido from './componenentes/Sonido'
