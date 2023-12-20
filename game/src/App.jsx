@@ -10,9 +10,9 @@ import Swal from 'sweetalert2'
 import Jugadores from './componenentes/Jugadores'
 import styled from 'styled-components';
 import useSound from 'use-sound';
-import fondo from './sonidos/sleep-talking-ogg-68026.mp3'
+import fondo from './sonidos/toing.mp3'
 import Sonido from './componenentes/Sonido'
-import AudioPlayer from './componenentes/AudioPlayer'
+
 
 
 function App()  {
@@ -40,6 +40,7 @@ const [Button, setButton] = useState(
 
 const max = 4;
 const [playSound] = useSound(fondo)
+const [play, { stop }] = useSound(fondo);
 const [texto, setTexto] = useState("Apretá el botón para ver la pregunta")
 const [op1, setOp1] = useState("Opción 1")
 const [op2, setOp2] = useState("Opción 2")
@@ -64,7 +65,7 @@ else{
   localStorage.setItem("jugador_B", JSON.stringify(0))
 }
 
-const jugadores = function (punto){
+function jugadores (punto){
 jugador_A.activo == jugador_B.activo ? (
 localStorage.setItem("jugador_A", JSON.stringify(parseInt(punto) + parseInt(jugador_A.puntos))),
 setActivoA( activoA +1)
@@ -77,7 +78,7 @@ useEffect(() => {
 if (count <= 10){
   const interval = setInterval(() => {
 setCount(count - 1),
-count == 0 ? (jugadores(-1)) (setTexto("Apretá el botón para ver la pregunta")): ""
+count == 0 ? ((jugadores(-1)), (setTexto("Apretá el botón para ver la pregunta"))): ""
   }, 1000);
   return () => clearInterval(interval);
 }}, [count]);
@@ -101,8 +102,8 @@ setTexto("Apretá el botón para ver la pregunta")
 
   return (
     <TextoRojo>
-      <Sonido/>
 
+<Sonido/>
 
 <Jugadores />
 <Mensaje mensaje={texto} />
@@ -113,6 +114,7 @@ let nP =(Math.floor(Math.random() * 3)+1).toString();
 setNum(n);
 setnumPreg(nP);
 setTimeout(()=>{
+    play()
   console.log(nP)
 setTexto(preguntas[0][nP].pregunta)
 setOp1(respuestas[0][nP][0][n].opcion1[0])
@@ -128,6 +130,7 @@ let nP =(Math.floor(Math.random() * 3)+1).toString();
 setNum(n);
 setnumPreg(nP);
 setTimeout(()=>{
+    play()
   console.log(nP)
 setTexto(preguntas[0][nP].pregunta)
 setOp1(respuestas[0][nP][0][n].opcion1[0])

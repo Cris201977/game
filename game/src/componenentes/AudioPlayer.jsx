@@ -1,32 +1,13 @@
-import React,{Component} from 'react';
+import React from 'react'
 
-class AudioPlayer extends Component {
+function AudioPlayer(){
 
-  constructor(props) {
-    super(props);
-    this.mediaFile = React.createRef();
-    this.playToggle = this.playToggle.bind(this);
-  }
 
-  playToggle(){
-    if (this.mediaFile.current.paused){
-      this.mediaFile.current.play();
-    } else {
-      this.mediaFile.current.pause();
-    }
-  }
+return (
+<div>
 
-  render(){
-    return (
-        <>
-        <audio ref={this.mediaFile}>
-          <source src="../sonidos/sleep-talking-ogg-68026.mp3" />
-        </audio><br />
-        <button onClick={this.playToggle}>Play/Pause</button>
-        </>
-      );
-  }
-
+</div>
+  )
 }
 
 export default AudioPlayer;
