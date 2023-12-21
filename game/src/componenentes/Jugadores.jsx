@@ -1,7 +1,9 @@
 import Swal from 'sweetalert2'
-
+import useSound from 'use-sound';
+import victoria from '../sonidos/victoria.mp3'
 function Jugadores() {
-  const puntaje = 2;
+  const puntaje = 1;
+  const [play6, { stop6 }] = useSound(victoria);
   let a = localStorage.getItem("jugador_A")
   let b = localStorage.getItem("jugador_B")
   const condicion_1= a <puntaje && a >(-puntaje)
@@ -16,7 +18,12 @@ function Jugadores() {
   showConfirmButton: false,
   background: '#ABEBC6',
   timer: 5000
-  })}
+  })
+play6()
+setTimeout(() => {
+  window.location.reload(true)
+}, 5000);
+}
 
   return (
     <div className='jugadores'>

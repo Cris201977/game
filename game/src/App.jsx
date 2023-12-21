@@ -12,6 +12,10 @@ import styled from 'styled-components';
 import useSound from 'use-sound';
 import fondo from './sonidos/toing.mp3'
 import Sonido from './componenentes/Sonido'
+import correcto from './sonidos/correcto.mp3'
+import incorrecto from './sonidos/incorrecto.mp3'
+import segundo from './sonidos/segundo.mp3'
+import tiempooo from './sonidos/tiempooo.mp3'
 
 
 
@@ -40,7 +44,11 @@ const [Button, setButton] = useState(
 
 const max = 4;
 const [playSound] = useSound(fondo)
-const [play, { stop }] = useSound(fondo);
+const [play1, { stop1 }] = useSound(fondo);
+const [play2, { stop2 }] = useSound(correcto);
+const [play3, { stop3 }] = useSound(incorrecto);
+const [play4, { stop4 }] = useSound(segundo);
+const [play5, { stop5 }] = useSound(tiempooo);
 const [texto, setTexto] = useState("Apretá el botón para ver la pregunta")
 const [op1, setOp1] = useState("Opción 1")
 const [op2, setOp2] = useState("Opción 2")
@@ -78,7 +86,15 @@ useEffect(() => {
 if (count <= 10){
   const interval = setInterval(() => {
 setCount(count - 1),
-count == 0 ? ((jugadores(-1)), (setTexto("Apretá el botón para ver la pregunta"))): ""
+count <= 4 ? play4(): ""
+count == 0 ? ((jugadores(-1)), (setTexto("Apretá el botón para ver la pregunta")), (play5()),
+ Swal.fire({
+title : "TIEMPO CUMPLIDO",
+showConfirmButton: false,
+background: "#F08080",
+timer: 1500
+})
+): ""
   }, 1000);
   return () => clearInterval(interval);
 }}, [count]);
@@ -90,9 +106,9 @@ if(count < 0){
 const mostrarResultado = function (res){
   setCount()
   setStyleOpcion({visibility:"hidden"})
-  res == "verdadero" ? jugadores(1): jugadores(-1)
+  res == "verdadero" ? (jugadores(1), play2()): (jugadores(-1), play3())
   Swal.fire({
-title : (res == "falso" ? res.charAt(0).toUpperCase().fontcolor("red") + res.slice(1).fontcolor("red") + ": -1": res.charAt(0).toUpperCase().fontcolor("green") + res.slice(1).fontcolor("green") + ": +1"),
+title : (res == "falso" ? res.charAt(0).toUpperCase().fontcolor("red") + res.slice(1).fontcolor("red") + ": -1": res.charAt(0).toUpperCase().fontcolor("green") + res.slice(1).fontcolor("green")  + ": +1"),
 showConfirmButton: false,
 background: res == "verdadero" ? '#ABEBC6': "#F08080",
 timer: 1500
@@ -114,7 +130,7 @@ let nP =(Math.floor(Math.random() * 3)+1).toString();
 setNum(n);
 setnumPreg(nP);
 setTimeout(()=>{
-    play()
+    play1()
   console.log(nP)
 setTexto(preguntas[0][nP].pregunta)
 setOp1(respuestas[0][nP][0][n].opcion1[0])
@@ -130,14 +146,14 @@ let nP =(Math.floor(Math.random() * 3)+1).toString();
 setNum(n);
 setnumPreg(nP);
 setTimeout(()=>{
-    play()
+    play1()
   console.log(nP)
 setTexto(preguntas[0][nP].pregunta)
 setOp1(respuestas[0][nP][0][n].opcion1[0])
 setOp2(respuestas[0][nP][0][n].opcion2[0])
 setCount(10)
 setStyleOpcion({visibility:"visible"})
-}, 2000)
+}, 1000)
 }}>Jugar</button>
 }
 
